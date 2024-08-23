@@ -55,10 +55,18 @@ find . -name "*.pdf" | xargs zip -r result.zip
 # a file exists and is not empty.
 if [ ! -s links.html ]; then ...
 grep word file
+
+
 grep -R word file # recursive
 
 ######### Standard Error Tips
-$? # 1 means didn't work ; 0 means something went wrong
+# 1 represents stout
+# 2 represents err
+# 0 represents stdin
+# 2> redirects to stdout
+
+
+$? # 1 means didn't work ; 0 means works fine
 which ruby > /dev/null 2> /dev/null
 if ! [ $? -eq 0 ]; then
     echo "Ruby is not installed. Please install Ruby first."
